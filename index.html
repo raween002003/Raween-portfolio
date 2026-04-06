@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Raween Almohmmadi – Portfolio</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --purple: #8c3cff;
+      --purple-mid: #b86bff;
+      --purple-soft: #e8d6ff;
+      --purple-pale: #f4edff;
+      --lavender-bg: #f7f3ff;
+      --text: #1d1a26;
+      --muted: #6f6a7d;
+      --border: #e7dcff;
+      --white: #ffffff;
+      --shadow: 0 10px 30px rgba(140, 60, 255, 0.10);
+      --shadow-hover: 0 18px 45px rgba(140, 60, 255, 0.16);
+      --radius: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at left bottom, rgba(214, 132, 255, 0.18), transparent 24%),
+        radial-gradient(circle at right center, rgba(231, 155, 255, 0.18), transparent 26%),
+        linear-gradient(180deg, #fbf9ff 0%, #f5efff 100%);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(140, 60, 255, 0.08);
+    }
+
+    .nav-inner {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 18px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 900;
+      color: var(--purple);
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #2f2b3a;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--purple);
+    }
+
+    .nav-links a.active::after,
+    .nav-links a:hover::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -2px;
+      height: 3px;
+      border-radius: 99px;
+      background: var(--purple);
+    }
+
+    /* HERO */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 70px 0 50px;
+    }
+
+    .hero-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .hero-hello {
+      color: #5f5a6f;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero-title {
+      font-size: clamp(3rem, 7vw, 5.6rem);
+      line-height: 0.95;
+      letter-spacing: -0.04em;
+      font-weight: 900;
+      color: var(--purple);
+    }
+
+    .hero-role {
+      margin-top: 18px;
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #272430;
+    }
+
+    .hero-desc {
+      margin-top: 18px;
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1.9;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 46px;
+      flex-wrap: wrap;
+      margin-top: 34px;
+    }
+
+    .stat .num {
+      font-size: 3rem;
+      line-height: 1;
+      color: var(--purple);
+      font-weight: 900;
+    }
+
+    .stat .label {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .hero-actions {
+      margin-top: 34px;
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-width: 180px;
+      padding: 16px 26px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, #a83fff 0%, #7a2eff 100%);
+      color: white;
+      font-weight: 900;
+      font-size: 1rem;
+      box-shadow: 0 10px 26px rgba(140, 60, 255, 0.28);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(140, 60, 255, 0.34);
+    }
+
+    .social-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--border);
+      color: var(--purple);
+      background: rgba(255,255,255,0.7);
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-2px);
+      background: var(--purple);
+      color: white;
+      border-color: var(--purple);
+    }
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: clamp(2.3rem, 5vw, 4rem);
+      font-weight: 900;
+      color: var(--purple);
+      letter-spacing: -0.03em;
+      margin-bottom: 14px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 1rem;
+      margin-bottom: 40px;
+    }
+
+    /* ABOUT */
+    .about-card {
+      max-width: 760px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(255,255,255,0.8);
+      box-shadow: var(--shadow);
+      border-radius: 30px;
+      padding: 34px;
+    }
+
+    .about-card p {
+      color: #5a5667;
+      font-size: 1.02rem;
+      line-height: 2;
+    }
+
+    .about-actions {
+      margin-top: 26px;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-secondary,
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 155px;
+      padding: 14px 22px;
+      border-radius: 16px;
+      font-weight: 800;
+      font-size: 0.98rem;
+    }
+
+    .btn-secondary {
+      background: linear-gradient(135deg, #a83fff 0%, #7a2eff 100%);
+      color: white;
+      box-shadow: 0 8px 22px rgba(140, 60, 255, 0.22);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--purple);
+      color: var(--purple);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background: var(--purple);
+      color: white;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 26px;
+    }
+
+    .project-card {
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(255,255,255,0.9);
+      border-radius: 30px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .project-image {
+      height: 260px;
+      background: linear-gradient(135deg, #d2b0ff 0%, #8c3cff 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(140, 60, 255, 0.78);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      font-weight: 900;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-body {
+      padding: 24px 24px 26px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .project-kicker {
+      color: var(--purple);
+      font-size: 0.76rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin-bottom: 10px;
+    }
+
+    .project-title {
+      font-size: 1.8rem;
+      font-weight: 900;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .project-desc {
+      color: var(--muted);
+      font-size: 0.98rem;
+      line-height: 1.85;
+      flex: 1;
+    }
+
+    .project-action {
+      margin-top: 22px;
+    }
+
+    .project-icon-btn {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #a83fff 0%, #7a2eff 100%);
+      color: white;
+      font-size: 1.2rem;
+      font-weight: 900;
+      box-shadow: 0 8px 18px rgba(140, 60, 255, 0.22);
+    }
+
+    .project-icon-btn.locked {
+      background: linear-gradient(135deg, #7d1eff 0%, #5d0fc3 100%);
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      max-width: 930px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .skill-chip {
+      background: rgba(255,255,255,0.9);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 20px;
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #444;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+    }
+
+    /* TESTIMONIALS */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .testimonial-card {
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(255,255,255,0.92);
+      box-shadow: var(--shadow);
+      border-radius: 26px;
+      padding: 24px;
+    }
+
+    .stars {
+      color: var(--purple);
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+      font-size: 1rem;
+    }
+
+    .testimonial-text {
+      color: #5a5667;
+      font-size: 0.98rem;
+      line-height: 1.9;
+      margin-bottom: 24px;
+      min-height: 170px;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-badge {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .badge-as { background: #a988ff; }
+    .badge-mb { background: #b66bff; }
+    .badge-aa { background: #8c3cff; }
+
+    .author-name {
+      font-weight: 900;
+      font-size: 1rem;
+    }
+
+    .author-role {
+      color: var(--muted);
+      font-size: 0.84rem;
+      margin-top: 2px;
+    }
+
+    /* CONTACT */
+    .contact-card {
+      max-width: 760px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.84);
+      border: 1px solid rgba(255,255,255,0.92);
+      box-shadow: var(--shadow);
+      border-radius: 28px;
+      padding: 30px;
+    }
+
+    .contact-card h3 {
+      color: var(--purple);
+      font-size: 1.9rem;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-item:last-child {
+      border-bottom: none;
+    }
+
+    .contact-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background: var(--purple-pale);
+      color: var(--purple);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-label {
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .contact-value {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #393543;
+      margin-top: 2px;
+    }
+
+    .contact-value a {
+      color: var(--purple);
+    }
+
+    footer {
+      padding: 28px 0 40px;
+      text-align: center;
+      color: #6f6a7d;
+      font-size: 0.92rem;
+    }
+
+    /* MODAL */
+    .modal-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(18, 10, 35, 0.58);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+    }
+
+    .modal-bg.show {
+      display: flex;
+    }
+
+    .modal-box {
+      background: white;
+      width: min(720px, 100%);
+      border-radius: 28px;
+      padding: 32px 28px;
+      position: relative;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 14px;
+      right: 16px;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: #767676;
+      cursor: pointer;
+    }
+
+    .modal-lock {
+      font-size: 3rem;
+      margin-bottom: 14px;
+      color: var(--purple);
+    }
+
+    .modal-box p {
+      font-size: 1.65rem;
+      line-height: 1.55;
+      color: #46404f;
+      font-weight: 700;
+    }
+
+    @media (max-width: 980px) {
+      .projects-grid,
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-title {
+        font-size: clamp(2.8rem, 11vw, 4.6rem);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links {
+        gap: 18px;
+      }
+
+      .hero-stats {
+        gap: 28px;
+      }
+
+      .about-card,
+      .contact-card {
+        padding: 24px;
+      }
+
+      .testimonial-text {
+        min-height: auto;
+      }
+
+      .modal-box p {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <div class="logo">Raween Almohmmadi</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#testimonials">Testimonials</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <section id="home">
+      <div class="container">
+        <div class="hero-wrap">
+          <p class="hero-hello">Hello Welcome 👋</p>
+          <h1 class="hero-title">I’m Raween<br>Almohmmadi</h1>
+          <p class="hero-role">Data Analyst / Dashboard Designer</p>
+          <p class="hero-desc">
+            From clean interfaces to powerful dashboards, I combine data analysis and design thinking to deliver clear, actionable insights that support better decisions.
+          </p>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <div class="num">1+</div>
+              <div class="label">Years of<br>Experience</div>
+            </div>
+            <div class="stat">
+              <div class="num">12+</div>
+              <div class="label">Skills</div>
+            </div>
+            <div class="stat">
+              <div class="num">5+</div>
+              <div class="label">Projects</div>
+            </div>
+          </div>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">✉️ Hire Me</a>
+
+            <a class="social-btn" href="https://www.linkedin.com/in/raween-almohmmadi-05a42b286?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M4.98 3.5a2.48 2.48 0 1 0 0 4.96 2.48 2.48 0 0 0 0-4.96ZM3 9h4v12H3V9Zm7 0h3.83v1.64h.05c.53-1 1.82-2.05 3.74-2.05C21 8.59 21 11 21 14.08V21h-4v-6.08c0-1.45-.03-3.31-2.02-3.31-2.02 0-2.33 1.58-2.33 3.21V21h-4V9Z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">Who am I?</h2>
+        <div class="about-card">
+          <p>
+            Recent MIS graduate with hands-on experience in data analysis, KPI tracking, reporting, and operational data management.
+            I worked with structured data to support performance monitoring, improve reporting accuracy, and deliver insights that support business decisions.
+            I also have a strong interest in dashboard design and UX/UI, where I focus on creating clear and effective user-centered solutions.
+          </p>
+
+          <div class="about-actions">
+            <a href="mailto:raween002003@gmail.com" class="btn-secondary">📨 Email me</a>
+            <a href="Raween-Almohmmadi-CV 3.pdf" target="_blank" class="btn-outline">📄 CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2 class="section-title">Projects</h2>
+        <p class="section-sub">Take a look into my recent projects</p>
+
+        <div class="projects-grid">
+
+          <article class="project-card">
+            <a href="hr-dashboard.png" target="_blank">
+              <div class="project-image">
+                <img src="hr-dashboard.png" alt="Employees Insight Dashboard">
+                <div class="project-overlay">View Dashboard →</div>
+              </div>
+            </a>
+            <div class="project-body">
+              <div class="project-kicker">HR Analytics Project</div>
+              <h3 class="project-title">Employees Insight Dashboard</h3>
+              <p class="project-desc">
+                Developed an HR dashboard to analyze workforce data and uncover insights related to employee retention and performance.
+                The analysis highlighted patterns in turnover across departments and salary levels, as well as the relationship between workload and employee attrition.
+              </p>
+              <div class="project-action">
+                <a href="hr-dashboard.png" target="_blank" class="project-icon-btn" style="display:inline-flex;align-items:center;justify-content:center;">↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a href="marketing-dashboard.png" target="_blank">
+              <div class="project-image">
+                <img src="marketing-dashboard.png" alt="Marketing Dashboard">
+                <div class="project-overlay">View Dashboard →</div>
+              </div>
+            </a>
+            <div class="project-body">
+              <div class="project-kicker">Business Intelligence Project</div>
+              <h3 class="project-title">Customer Personality Analysis – Marketing Dashboard</h3>
+              <p class="project-desc">
+                Developed a marketing dashboard to analyze customer behavior and evaluate campaign performance.
+                The analysis showed how age, income, and education level influence customer engagement and highlighted insights that support more targeted marketing strategies.
+              </p>
+              <div class="project-action">
+                <a href="marketing-dashboard.png" target="_blank" class="project-icon-btn" style="display:inline-flex;align-items:center;justify-content:center;">↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a href="sales-dashboard.png" target="_blank">
+              <div class="project-image">
+                <img src="sales-dashboard.png" alt="Sales Dashboard">
+                <div class="project-overlay">View Dashboard →</div>
+              </div>
+            </a>
+            <div class="project-body">
+              <div class="project-kicker">Business Intelligence Project</div>
+              <h3 class="project-title">Customer Personality Analysis – Sales Dashboard</h3>
+              <p class="project-desc">
+                Designed a sales dashboard to analyze purchasing behavior and overall sales performance.
+                The insights revealed differences across customer segments, products, and channels, helping support stronger sales decisions and better performance evaluation.
+              </p>
+              <div class="project-action">
+                <a href="sales-dashboard.png" target="_blank" class="project-icon-btn" style="display:inline-flex;align-items:center;justify-content:center;">↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <a href="https://www.figma.com/proto/JpangKapwNSbfaqnPMs6IZ/Untitled?node-id=0-1&t=N7XpPkaZFSyIRjcf-1" target="_blank">
+              <div class="project-image">
+                <img src="triagemate.png" alt="TriageMate UX/UI Project">
+                <div class="project-overlay">View Prototype →</div>
+              </div>
+            </a>
+            <div class="project-body">
+              <div class="project-kicker">UX/UI Design Project</div>
+              <h3 class="project-title">TriageMate – UX/UI Design</h3>
+              <p class="project-desc">
+                Designed a healthcare application to improve the triage process in emergency departments.
+                The project focused on improving patient flow, reducing waiting time, and supporting better communication through a clear and user-friendly prototype built in Figma.
+              </p>
+              <div class="project-action">
+                <a href="https://www.figma.com/proto/JpangKapwNSbfaqnPMs6IZ/Untitled?node-id=0-1&t=N7XpPkaZFSyIRjcf-1" target="_blank" class="project-icon-btn" style="display:inline-flex;align-items:center;justify-content:center;">↗</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <div class="project-image" style="display:flex;align-items:center;justify-content:center;background:linear-gradient(135deg,#caa1ff 0%, #8c3cff 100%);">
+              <div style="text-align:center;color:white;padding:24px;">
+                <div style="font-size:3rem;margin-bottom:10px;">🔒</div>
+                <div style="font-size:1.2rem;font-weight:900;">Confidential Project</div>
+              </div>
+              <div class="project-overlay" style="opacity:1;background:rgba(140,60,255,0.20);">Private Organization</div>
+            </div>
+            <div class="project-body">
+              <div class="project-kicker">Internship Project</div>
+              <h3 class="project-title">Mandatory Courses Dashboard</h3>
+              <p class="project-desc">
+                Developed internal dashboards to monitor mandatory training completion and track performance indicators.
+                The project provided actionable insights to improve compliance, training coverage, and internal reporting for stakeholders.
+              </p>
+              <div class="project-action">
+                <button type="button" class="project-icon-btn locked" onclick="openModal()">🔒</button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">Bonus: Technical Features</h2>
+        <p class="section-sub">Here are some of the technologies and tools I frequently use in my work:</p>
+
+        <div class="skills-grid">
+          <div class="skill-chip">Power BI</div>
+          <div class="skill-chip">DAX</div>
+          <div class="skill-chip">Power Query</div>
+          <div class="skill-chip">Excel</div>
+          <div class="skill-chip">SharePoint</div>
+          <div class="skill-chip">Power Apps</div>
+          <div class="skill-chip">Power Automate</div>
+          <div class="skill-chip">Figma</div>
+          <div class="skill-chip">Responsive Design</div>
+          <div class="skill-chip">BPMN</div>
+          <div class="skill-chip">Lucidchart</div>
+          <div class="skill-chip">Draw.io</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials">
+      <div class="container">
+        <h2 class="section-title">Testimonials</h2>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">
+              “Raween, you were an added value to the team. Your contributions and hard work set high standards. Wishing you all the best. Keep shining.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-badge badge-as">AS</div>
+              <div>
+                <div class="author-name">Amal Sahrah</div>
+                <div class="author-role">Director of Training & Development</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">
+              “It was a pleasure having you with us at CATRION. Your dedication and eagerness to learn were evident throughout your training. You have a bright future ahead, and I have no doubt you will achieve great things.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-badge badge-mb">MB</div>
+              <div>
+                <div class="author-name">Maher Basheikh</div>
+                <div class="author-role">Training & Talent Development | Data Analyst</div>
+              </div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p class="testimonial-text">
+              “You are one of the best colleagues I have ever worked with. Professional, intelligent, and highly dedicated. I am confident you will achieve many great accomplishments.”
+            </p>
+            <div class="testimonial-author">
+              <div class="author-badge badge-aa">AA</div>
+              <div>
+                <div class="author-name">Areej Alshehri</div>
+                <div class="author-role">Training Specialist – CATRION</div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">Contact Me</h2>
+        <p class="section-sub">Got a project in mind or just want to say hello? Let’s connect!</p>
+
+        <div class="contact-card">
+          <h3>Let’s be in touch!</h3>
+
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value">
+                <a href="mailto:raween002003@gmail.com">raween002003@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div>
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">
+                <a href="tel:+966582632750">+966 58 263 2750</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">📍</div>
+            <div>
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Saudi Arabia</div>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">💼</div>
+            <div>
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value">
+                <a href="https://www.linkedin.com/in/raween-almohmmadi-05a42b286?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank">Raween Almohmmadi</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2025 · Built with 💜 for data
+  </footer>
+
+  <div class="modal-bg" id="confidentialModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">×</button>
+      <div class="modal-lock">🔒</div>
+      <p>This project was developed for a private organization and cannot be shared publicly due to confidentiality agreements.</p>
+    </div>
+  </div>
+
+  <script>
+    const sections = document.querySelectorAll("section[id]");
+    const navLinks = document.querySelectorAll(".nav-links a");
+
+    function setActiveLink() {
+      let current = "";
+      sections.forEach(section => {
+        const top = section.offsetTop - 140;
+        if (window.scrollY >= top) {
+          current = section.getAttribute("id");
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove("active");
+        if (link.getAttribute("href") === "#" + current) {
+          link.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", setActiveLink);
+    window.addEventListener("load", setActiveLink);
+
+    const modal = document.getElementById("confidentialModal");
+
+    function openModal() {
+      modal.classList.add("show");
+    }
+
+    function closeModal() {
+      modal.classList.remove("show");
+    }
+
+    modal.addEventListener("click", function (e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") {
+        closeModal();
+      }
+    });
+  </script>
+
+</body>
+</html>
+  
